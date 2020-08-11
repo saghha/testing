@@ -10,6 +10,7 @@
                                 <b-button @click="agergarVuex(row.item)" variant="warning" class="btn btn-sm">Ver</b-button> 
                             </template>
                         </b-table>
+                        
                     </div>
                 </div>
             </div>
@@ -25,8 +26,9 @@ export default {
     },
     data () {
         return {
-            datos: null,
-            data: [],
+            datos: [],
+            currentPage: 1,
+            perPage: 10,
             fields: [
                 {key:'name', label: 'Name', sortable: true},
                 {key: 'zipcode', label: 'ZipCode'},
@@ -38,6 +40,9 @@ export default {
         }
     },
     computed: {
+        rows () {
+            return this.datos.length
+        }
     },
     created () {
         this.$nextTick(function () {

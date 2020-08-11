@@ -21,7 +21,7 @@ export default {
     name: 'Footer',
     data () {
         return {
-            mail: 'example<qmail.com',
+            mail: 'example@mail.com',
             phone: '+56963021525',
             mention: 'Good Luck'
         }

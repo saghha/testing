@@ -1,10 +1,18 @@
 <template>
-    <section class="container">
+    <section class="container" v-if="FillData">
         <div class="row">
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Información de un dato</h4>
+                        <div class="row">
+                            <div class="col-6">
+                                <h4 class="card-title">Información de un dato</h4>
+                            </div>
+                            <div class="col-6 text-right">
+                                <b-button variant="primary" class="btn-rounded" v-if="showMode" @click="changeMode(false)">Editar</b-button>
+                                <b-button variant="primary" class="btn-rounded" v-else @click="changeMode(true)">Modo vista</b-button>
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="col-6">
                                 <b-form-group label-for="name" label="Name">
@@ -31,7 +39,7 @@
                                     <b-form-input :value="data.policedistrict" id="policedistrict" disabled/>
                                 </b-form-group>
                             </div>
-                            <div class="col-12">
+                            <div class="col-12 text-right">
                                 <b-button variant="success" class="btn-rounded">Cambiar en Vuex</b-button>
                             </div>
                         </div>
@@ -52,14 +60,20 @@ export default {
                 neighborhood: null,
                 councildistrict: null,
                 policedistrict: null
-            }
+            },
+            showMode: true
         }
+    },
+    computed: {
+
     },
     created () {
         //traer desde vuex
     },
     methods: {
-
+        changeMode: function (cond) {
+            this.showMode = cond
+        }
     }
 }
 </script>
