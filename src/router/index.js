@@ -1,4 +1,6 @@
 import Vue from 'vue'
+import AllInfo from '../views/All'
+import OneData from '../views/One'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 
@@ -9,6 +11,11 @@ Vue.use(VueRouter)
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/todos',
+    name: 'todos',
+    component: AllInfo
   },
   {
     path: '/about',
